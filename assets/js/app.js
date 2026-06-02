@@ -205,12 +205,14 @@ function initNavigation() {
 }
 
 function toggleMobileMenu() {
+    DOM.mobileToggle.classList.toggle('active');
     DOM.navMenu.classList.toggle('active');
     DOM.mobileOverlay.classList.toggle('active');
     document.body.style.overflow = DOM.navMenu.classList.contains('active') ? 'hidden' : '';
 }
 
 function closeMobileMenu() {
+    DOM.mobileToggle.classList.remove('active');
     DOM.navMenu.classList.remove('active');
     DOM.mobileOverlay.classList.remove('active');
     document.body.style.overflow = '';
