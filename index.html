@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethio Real Estate 3D Showcase | Premium Properties in Ethiopia</title>
+    <meta name="description" content="Explore premium Ethiopian real estate projects in interactive 3D. Discover luxury apartments, commercial spaces, and investment opportunities from top developers.">
+    <meta name="keywords" content="Ethiopia real estate, Addis Ababa property, luxury apartments, 3D property viewer, real estate investment, Prime Real Estate, Legacy Real Estate">
+    <meta name="author" content="Ethio Real Estate Showcase">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/ethio-real-estate/">
+    <meta property="og:title" content="Ethio Real Estate 3D Showcase">
+    <meta property="og:description" content="Premium Ethiopian real estate in interactive 3D. Browse, compare, and invest in top properties.">
+    <meta property="og:image" content="https://yourusername.github.io/ethio-real-estate/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/ethio-real-estate/">
+    <meta property="twitter:title" content="Ethio Real Estate 3D Showcase">
+    <meta property="twitter:description" content="Premium Ethiopian real estate in interactive 3D.">
+    <meta property="twitter:image" content="https://yourusername.github.io/ethio-real-estate/assets/images/og-image.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourusername.github.io/ethio-real-estate/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Ethio Real Estate 3D Showcase",
+        "description": "Premium Ethiopian real estate platform with 3D visualization",
+        "url": "https://yourusername.github.io/ethio-real-estate/",
+        "logo": "https://yourusername.github.io/ethio-real-estate/assets/images/logo.png",
+        "sameAs": [
+            "https://facebook.com/ethiorealestate",
+            "https://twitter.com/ethiorealestate",
+            "https://instagram.com/ethiorealestate"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Addis Ababa",
+            "addressCountry": "ET"
+        }
+    }
+    </script>
+</head>
+<body class="light-mode">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">🏢</div>
+            <div class="loading-text" data-en="Loading Experience..." data-am="በመጫን ላይ...">Loading Experience...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon">🏢</span>
+                <div class="logo-text">
+                    <span class="logo-title">Ethio Real Estate</span>
+                    <span class="logo-subtitle">3D Showcase</span>
+                </div>
+            </a>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active" data-en="Home" data-am="መነሻ">Home</a></li>
+                    <li><a href="#listings" class="nav-link" data-en="Properties" data-am="ንብረቶች">Properties</a></li>
+                    <li><a href="#investor" class="nav-link" data-en="Investor Zone" data-am="የኢንቨስተር ዞን">Investor Zone</a></li>
+                    <li><a href="#awards" class="nav-link" data-en="Awards" data-am="ሽልማቶች">Awards</a></li>
+                    <li><a href="#magazine" class="nav-link" data-en="Magazine" data-am="መጽሔት">Magazine</a></li>
+                    <li><a href="#sponsors" class="nav-link" data-en="Sponsors" data-am="ስፖንሰሮች">Sponsors</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="icon-btn" id="dark-mode-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="icon-btn" id="lang-toggle" aria-label="Toggle language">
+                        <span class="lang-indicator">EN</span>
+                    </button>
+                    <button class="icon-btn favorites-btn" id="favorites-btn" aria-label="Favorites">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count" id="favorites-count">0</span>
+                    </button>
+                    <a href="#listings" class="btn btn-primary nav-cta">
+                        <span data-en="Explore" data-am="አስሳ">Explore</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Home / Hero Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="hero-bg">
+                    <div class="hero-video-fallback"></div>
+                    <div class="hero-overlay"></div>
+                </div>
+                <div class="hero-content container">
+                    <div class="hero-badge" data-en="🏆 Ethiopia's First 3D Real Estate Platform" data-am="🏆 የኢትዮጵያ ፊርስት 3D የንብረት መድረክ">
+                        🏆 Ethiopia's First 3D Real Estate Platform
+                    </div>
+                    <h1 class="hero-title">
+                        <span data-en="Discover Luxury" data-am="ታላቅ">Discover Luxury</span>
+                        <span class="text-gold" data-en="Real Estate" data-am="ንብረት">Real Estate</span>
+                        <span data-en="in 3D" data-am="በ3D">in 3D</span>
+                    </h1>
+                    <p class="hero-subtitle" data-en="Browse premium properties from Ethiopia's top developers. Experience immersive 3D walkthroughs, compare investments, and find your dream property." data-am="ከኢትዮጵያ ከፍተኛ አበልጻጅዎች ጋር ፕሪሚየም ንብረቶችን ያስሱ። በ3D ውስጥ ይመላለሱ፣ ኢንቨስትሜንቶችን ያወዳድሩ፣ እና የእርስዎን የሚፈልጉት ንብረት ያግኙ።">
+                        Browse premium properties from Ethiopia's top developers. Experience immersive 3D walkthroughs, compare investments, and find your dream property.
+                    </p>
+                    
+                    <div class="hero-search glass">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="hero-search" placeholder="Search by location, project, or developer..." data-placeholder-am="በቦታ፣ ፕሮጀክት፣ ወይም አበልጻጅ ይፈልጉ...">
+                        </div>
+                        <div class="search-filters">
+                            <select id="search-type" class="glass-select">
+                                <option value="" data-en="Property Type" data-am="የንብረት አይነት">Property Type</option>
+                                <option value="residential" data-en="Residential" data-am="የመኖሪያ">Residential</option>
+                                <option value="commercial" data-en="Commercial" data-am="የንግድ">Commercial</option>
+                                <option value="mixed" data-en="Mixed Use" data-am="ቅሚላ">Mixed Use</option>
+                            </select>
+                            <select id="search-status" class="glass-select">
+                                <option value="" data-en="Status" data-am="ሁኔታ">Status</option>
+                                <option value="completed" data-en="Completed" data-am="የተጠናቀቀ">Completed</option>
+                                <option value="under-construction" data-en="Under Construction" data-am="በእድገት ላይ">Under Construction</option>
+                            </select>
+                            <button class="btn btn-primary btn-search" id="btn-search">
+                                <i class="fas fa-search"></i>
+                                <span data-en="Search" data-am="ፈልግ">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label" data-en="Projects" data-am="ፕሮጀክቶች">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label" data-en="Top Developers" data-am="ከፍተኛ አበልጻጅዎች">Top Developers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3D</span>
+                            <span class="stat-label" data-en="Virtual Tours" data-am="ምናባዊ ጉዞዎች">Virtual Tours</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <span data-en="Scroll to explore" data-am="ለማስሳት ይሸብልሉ">Scroll to explore</span>
+                </div>
+            </div>
+            
+            <!-- Featured Projects -->
+            <div class="section featured-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-badge" data-en="Featured" data-am="ተለይተው የቀረቡ">Featured</span>
+                        <h2 class="section-title" data-en="Premium Projects" data-am="ፕሪሚየም ፕሮጀክቶች">Premium Projects</h2>
+                        <p class="section-desc" data-en="Handpicked luxury developments from Ethiopia's most trusted real estate companies" data-am="ከኢትዮጵያ በጣም የታመኑ የንብረት ኩባንያዎች የተመረጡ ታላቅ ልማቶች">Handpicked luxury developments from Ethiopia's most trusted real estate companies</p>
+                    </div>
+                    <div class="featured-grid" id="featured-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Why Choose Us -->
+            <div class="section features-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title" data-en="Why Choose Us" data-am="እኛን ለምን ይመርጡ">Why Choose Us</h2>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card glass">
+                            <div class="feature-icon">🥽</div>
+                            <h3 data-en="3D Visualization" data-am="3D ቪዥዋላይዜሽን">3D Visualization</h3>
+                            <p data-en="Explore properties in immersive 3D before visiting in person. True-to-scale models with realistic lighting." data-am="ንብረቶችን በ3D ውስጥ ከሰውነት ጉብኝት በፊት ያስሱ። በትክክል ከስኬል ጋር የሚዛመዱ ሞዴሎች።">Explore properties in immersive 3D before visiting in person.</p>
+                        </div>
+                        <div class="feature-card glass">
+                            <div class="feature-icon">📊</div>
+                            <h3 data-en="Investment Analytics" data-am="የኢንቨስትሜንት ትንተና">Investment Analytics</h3>
+                            <p data-en="Compare ROI, rental yields, and appreciation forecasts across all major developments." data-am="ROI፣ የኪራይ ገቢዎች፣ እና የዋጋ ጭማሪ ትንበያዎችን በሁሉም ዋና ልማቶች ላይ ያወዳድሩ።">Compare ROI and rental yields across all major developments.</p>
+                        </div>
+                        <div class="feature-card glass">
+                            <div class="feature-icon">🏆</div>
+                            <h3 data-en="Award Winners" data-am="የሽልማት አሸናፊዎች">Award Winners</h3>
+                            <p data-en="Only certified, award-winning developers with proven track records of quality delivery." data-am="የተረጋገጠ የጥራት አቅርቦት ታሪክ ያላቸው የተመሰከረላቸው እና የሽልማት አሸናፊ አበልጻጅዎች ብቻ።">Only certified, award-winning developers with proven track records.</p>
+                        </div>
+                        <div class="feature-card glass">
+                            <div class="feature-icon">🔒</div>
+                            <h3 data-en="Secure Investment" data-am="ደህና የኢንቨስትሜንት">Secure Investment</h3>
+                            <p data-en="Verified legal documentation, escrow options, and transparent pricing for every listing." data-am="ለሁሉም ዝርዝሮች የተረጋገጠ ሕጋዊ ሰነድ፣ እስክሮው አማራጮች፣ እና ግልጽ ዋጋ።">Verified legal documentation and transparent pricing for every listing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Listings Page -->
+        <section id="listings" class="page-section">
+            <div class="page-header">
+                <div class="container">
+                    <h1 data-en="Property Listings" data-am="የንብረት ዝርዝሮች">Property Listings</h1>
+                    <p data-en="Browse all premium properties from Ethiopia's top developers" data-am="ከኢትዮጵያ ከፍተኛ አበልጻጅዎች ሁሉንም ፕሪሚየም ንብረቶች ያስሱ">Browse all premium properties</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="listings-layout">
+                    <aside class="filters-sidebar glass">
+                        <div class="filters-header">
+                            <h3 data-en="Filters" data-am="ማጣሪያዎች">Filters</h3>
+                            <button class="btn-text" id="reset-filters" data-en="Reset" data-am="አጥራ">Reset</button>
+                        </div>
+                        <div class="filter-group">
+                            <label data-en="Developer" data-am="አበልጻጅ">Developer</label>
+                            <div class="filter-options" id="filter-developer">
+                                <!-- JS rendered -->
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label data-en="Property Type" data-am="የንብረት አይነት">Property Type</label>
+                            <div class="filter-options" id="filter-type">
+                                <!-- JS rendered -->
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label data-en="Status" data-am="ሁኔታ">Status</label>
+                            <div class="filter-options" id="filter-status">
+                                <!-- JS rendered -->
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label data-en="Price Range" data-am="የዋጋ ክልል">Price Range</label>
+                            <input type="range" id="price-range" min="0" max="1000000" step="50000" class="range-slider">
+                            <div class="range-values">
+                                <span>$0</span>
+                                <span id="price-value">$1M+</span>
+                            </div>
+                        </div>
+                    </aside>
+                    
+                    <div class="listings-content">
+                        <div class="listings-toolbar">
+                            <span class="results-count" id="results-count">0 properties found</span>
+                            <div class="toolbar-actions">
+                                <button class="btn btn-outline btn-sm" id="compare-toggle" disabled>
+                                    <i class="fas fa-balance-scale"></i>
+                                    <span data-en="Compare" data-am="አወዳድር">Compare</span>
+                                    <span class="compare-count" id="compare-count">0</span>
+                                </button>
+                                <select id="sort-by" class="glass-select">
+                                    <option value="featured" data-en="Featured" data-am="ተለይተው የቀረቡ">Featured</option>
+                                    <option value="price-asc" data-en="Price: Low to High" data-am="ዋጋ፡ ከትንሽ ወደ ትልቅ">Price: Low to High</option>
+                                    <option value="price-desc" data-en="Price: High to Low" data-am="ዋጋ፡ ከትልቅ ወደ ትንሽ">Price: High to Low</option>
+                                    <option value="newest" data-en="Newest" data-am="የቅርብ ጊዜ">Newest</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="properties-grid" id="properties-grid">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details Page -->
+        <section id="details" class="page-section">
+            <div class="details-container" id="details-container">
+                <!-- JS rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- 3D Viewer Modal -->
+        <div id="viewer-modal" class="modal">
+            <div class="modal-content viewer-modal-content">
+                <div class="viewer-header glass">
+                    <h3 id="viewer-title">3D Property Viewer</h3>
+                    <div class="viewer-controls">
+                        <button class="icon-btn" id="viewer-fullscreen" title="Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button class="icon-btn" id="viewer-close" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="viewer-body">
+                    <div id="three-canvas-container"></div>
+                    <div class="viewer-toolbar glass">
+                        <button class="tool-btn active" id="tool-orbit" title="Orbit">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button class="tool-btn" id="tool-walk" title="Walkthrough">
+                            <i class="fas fa-walking"></i>
+                        </button>
+                        <button class="tool-btn" id="tool-reset" title="Reset View">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </button>
+                        <button class="tool-btn" id="tool-wireframe" title="Wireframe">
+                            <i class="fas fa-vector-square"></i>
+                        </button>
+                        <button class="tool-btn" id="tool-lights" title="Toggle Lights">
+                            <i class="fas fa-lightbulb"></i>
+                        </button>
+                        <div class="viewer-info">
+                            <span id="viewer-fps">60 FPS</span>
+                        </div>
+                    </div>
+                    <div class="loading-overlay" id="viewer-loading">
+                        <div class="spinner"></div>
+                        <span data-en="Loading 3D Model..." data-am="3D ሞዴል በመጫን ላይ...">Loading 3D Model...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investor Zone -->
+        <section id="investor" class="page-section">
+            <div class="page-header investor-header">
+                <div class="container">
+                    <span class="section-badge gold" data-en="Investor Zone" data-am="የኢንቨስተር ዞን">Investor Zone</span>
+                    <h1 data-en="Smart Investment Opportunities" data-am="ብልህ የኢንቨስትሜንት እድሎች">Smart Investment Opportunities</h1>
+                    <p data-en="Data-driven insights for premium real estate investments in Ethiopia" data-am="በኢትዮጵያ ለፕሪሚየም የንብረት ኢንቨስትሜንቶች ከውሂብ የሚመነዘሩ ግንዛቤዎች">Data-driven insights for premium real estate investments</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="investor-grid">
+                    <div class="investor-card glass highlight">
+                        <div class="investor-card-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h3 data-en="ROI Highlights" data-am="ROI ዋና ነጥቦች">ROI Highlights</h3>
+                        </div>
+                        <div class="roi-list" id="roi-list">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                    
+                    <div class="investor-card glass">
+                        <div class="investor-card-header">
+                            <i class="fas fa-file-pdf"></i>
+                            <h3 data-en="Download Presentations" data-am="ፕረዘንቴሽኖችን አውርድ">Download Presentations</h3>
+                        </div>
+                        <div class="download-list" id="download-list">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                    
+                    <div class="investor-card glass">
+                        <div class="investor-card-header">
+                            <i class="fas fa-envelope"></i>
+                            <h3 data-en="Contact Investor Relations" data-am="የኢንቨስተር ግንኙነት ያግኙ">Contact Investor Relations</h3>
+                        </div>
+                        <form class="investor-form" id="investor-form">
+                            <div class="form-group">
+                                <input type="text" class="glass-input" placeholder="Full Name" data-placeholder-am="ሙሉ ስም" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="glass-input" placeholder="Email Address" data-placeholder-am="ኢሜይል አድራሻ" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="glass-input" placeholder="Phone Number" data-placeholder-am="ስልክ ቁጥር">
+                            </div>
+                            <div class="form-group">
+                                <select class="glass-input">
+                                    <option value="" data-en="Investment Interest" data-am="የኢንቨስትሜንት ፍላጎት">Investment Interest</option>
+                                    <option value="residential" data-en="Residential" data-am="የመኖሪያ">Residential</option>
+                                    <option value="commercial" data-en="Commercial" data-am="የንግድ">Commercial</option>
+                                    <option value="mixed" data-en="Mixed Use" data-am="ቅሚላ">Mixed Use</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="glass-input" rows="3" placeholder="Message" data-placeholder-am="መልእክት"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span data-en="Send Inquiry" data-am="ጥያቄ ላክ">Send Inquiry</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="market-insights glass">
+                    <h3 data-en="Market Insights" data-am="የገበያ ግንዛቤዎች">Market Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-item">
+                            <span class="insight-value">+15%</span>
+                            <span class="insight-label" data-en="Annual Appreciation" data-am="የዓመታዊ ዋጋ ጭማሪ">Annual Appreciation</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-value">8.5%</span>
+                            <span class="insight-label" data-en="Average Rental Yield" data-am="አማካይ የኪራይ ገቢ">Average Rental Yield</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-value">$2.1B</span>
+                            <span class="insight-label" data-en="Market Volume" data-am="የገበያ መጠን">Market Volume</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-value">12K+</span>
+                            <span class="insight-label" data-en="Units Delivered" data-am="የቀረቡ ዩኒቶች">Units Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="page-section">
+            <div class="page-header">
+                <div class="container">
+                    <span class="section-badge">🏆</span>
+                    <h1 data-en="Ethio Real Estate Awards" data-am="የኢትዮጵያ ንብረት ሽልማቶች">Ethio Real Estate Awards</h1>
+                    <p data-en="Celebrating excellence in Ethiopian real estate development" data-am="በኢትዮጵያ የንብረት ልማት ውስጥ ያለውን excellence በማክበር">Celebrating excellence</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="awards-categories">
+                    <div class="award-category glass">
+                        <div class="award-icon">🏗️</div>
+                        <h3 data-en="Best Residential Development" data-am="ምርጥ የመኖሪያ ልማት">Best Residential Development</h3>
+                        <div class="award-winners" id="award-residential">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                    <div class="award-category glass">
+                        <div class="award-icon">🏢</div>
+                        <h3 data-en="Best Commercial Project" data-am="ምርጥ የንግድ ፕሮጀክት">Best Commercial Project</h3>
+                        <div class="award-winners" id="award-commercial">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                    <div class="award-category glass">
+                        <div class="award-icon">🌿</div>
+                        <h3 data-en="Most Sustainable Design" data-am="በጣም ተገማሚ ዲዛይን">Most Sustainable Design</h3>
+                        <div class="award-winners" id="award-sustainable">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                    <div class="award-category glass">
+                        <div class="award-icon">⭐</div>
+                        <h3 data-en="Developer of the Year" data-am="የዓመቱ አበልጻጅ">Developer of the Year</h3>
+                        <div class="award-winners" id="award-developer">
+                            <!-- JS rendered -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="top-projects glass">
+                    <h3 data-en="Top Ranked Projects" data-am="ከፍተኛ ደረጃ የተሰጣቸው ፕሮጀክቶች">Top Ranked Projects</h3>
+                    <div class="top-projects-list" id="top-projects-list">
+                        <!-- JS rendered -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="page-section">
+            <div class="page-header">
+                <div class="container">
+                    <h1 data-en="Our Sponsors" data-am="የእኛ ስፖንሰሮች">Our Sponsors</h1>
+                    <p data-en="Proudly supported by industry leaders" data-am="በኢንዱስትሪ መሪዎች በኩራት የተደገፉ">Proudly supported by industry leaders</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="sponsor-tier platinum">
+                    <div class="tier-badge">💎 Platinum Sponsors</div>
+                    <div class="sponsors-grid" id="sponsors-platinum">
+                        <!-- JS rendered -->
+                    </div>
+                </div>
+                <div class="sponsor-tier gold">
+                    <div class="tier-badge">🥇 Gold Sponsors</div>
+                    <div class="sponsors-grid" id="sponsors-gold">
+                        <!-- JS rendered -->
+                    </div>
+                </div>
+                <div class="sponsor-tier silver">
+                    <div class="tier-badge">🥈 Silver Sponsors</div>
+                    <div class="sponsors-grid" id="sponsors-silver">
+                        <!-- JS rendered -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Magazine Section -->
+        <section id="magazine" class="page-section">
+            <div class="page-header magazine-header">
+                <div class="container">
+                    <span class="section-badge">📖</span>
+                    <h1 data-en="Ethio Real Estate Magazine" data-am="የኢትዮጵያ ንብረት መጽሔት">Ethio Real Estate Magazine</h1>
+                    <p data-en="Latest industry news, trends, and exclusive interviews" data-am="የቅርብ ጊዜ ኢንዱስትሪ ዜናዎች፣ ትራንዶች፣ እና ልዩ ቃለመጠይቆች">Latest industry news and trends</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="magazine-featured glass" id="magazine-featured">
+                    <!-- JS rendered -->
+                </div>
+                <div class="magazine-grid" id="magazine-grid">
+                    <!-- JS rendered -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🏢</span>
+                        <div class="logo-text">
+                            <span class="logo-title">Ethio Real Estate</span>
+                            <span class="logo-subtitle">3D Showcase</span>
+                        </div>
+                    </div>
+                    <p data-en="Ethiopia's premier platform for luxury real estate discovery and 3D visualization." data-am="የኢትዮጵያ ፕሪሚየር መድረክ ለታላቅ የንብረት ግኝት እና 3D ቪዥዋላይዜሽን።">Ethiopia's premier platform for luxury real estate.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Quick Links" data-am="ፈጣን አገናኞች">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-am="መነሻ">Home</a></li>
+                        <li><a href="#listings" data-en="Properties" data-am="ንብረቶች">Properties</a></li>
+                        <li><a href="#investor" data-en="Investor Zone" data-am="የኢንቨስተር ዞን">Investor Zone</a></li>
+                        <li><a href="#awards" data-en="Awards" data-am="ሽልማቶች">Awards</a></li>
+                        <li><a href="#magazine" data-en="Magazine" data-am="መጽሔት">Magazine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Developers" data-am="አበልጻጅዎች">Developers</h4>
+                    <ul>
+                        <li><a href="#listings?developer=prime">Prime Real Estate</a></li>
+                        <li><a href="#listings?developer=legacy">Legacy Real Estate</a></li>
+                        <li><a href="#listings?developer=century">Century Real Estate</a></li>
+                        <li><a href="#listings?developer=taikus">Taikus Real Estate</a></li>
+                        <li><a href="#listings?developer=dmc">DMC Real Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-en="Contact Us" data-am="አግኙን">Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+                    <p><i class="fas fa-phone"></i> +251 11 551 1212</p>
+                    <p><i class="fas fa-envelope"></i> info@ethiorealestate.et</p>
+                    <p><i class="fas fa-clock"></i> Mon - Fri: 8:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Ethio Real Estate 3D Showcase. <span data-en="All rights reserved." data-am="ሁሉም መብቶች የተጠበቁ ናቸው።">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#" data-en="Privacy Policy" data-am="የግላዊነት ፖሊሲ">Privacy Policy</a>
+                    <a href="#" data-en="Terms of Service" data-am="የአገልግሎት ውል">Terms of Service</a>
+                    <a href="#" data-en="Sitemap" data-am="የጣቢያ ካርታ">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/251911234567" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Favorites Drawer -->
+    <div class="drawer" id="favorites-drawer">
+        <div class="drawer-header glass">
+            <h3><i class="fas fa-heart"></i> <span data-en="Favorites" data-am="የተወደዱ">Favorites</span></h3>
+            <button class="icon-btn" id="close-favorites"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="drawer-body" id="favorites-list">
+            <div class="empty-state">
+                <i class="far fa-heart"></i>
+                <p data-en="No favorites yet" data-am="እስካሁን ምንም የተወደዱ የሉም">No favorites yet</p>
+            </div>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="favorites-overlay"></div>
+
+    <!-- Comparison Modal -->
+    <div class="modal" id="compare-modal">
+        <div class="modal-content compare-modal-content">
+            <div class="modal-header glass">
+                <h3><i class="fas fa-balance-scale"></i> <span data-en="Compare Properties" data-am="ንብረቶችን አወዳድር">Compare Properties</span></h3>
+                <button class="icon-btn" id="close-compare"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="compare-table-wrapper">
+                    <table class="compare-table" id="compare-table">
+                        <!-- JS rendered -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content share-modal-content">
+            <div class="modal-header glass">
+                <h3 data-en="Share Project" data-am="ፕሮጀክት አጋራ">Share Project</h3>
+                <button class="icon-btn" id="close-share"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="share-buttons">
+                    <button class="share-btn facebook" data-platform="facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                    <button class="share-btn twitter" data-platform="twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </button>
+                    <button class="share-btn linkedin" data-platform="linkedin">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </button>
+                    <button class="share-btn whatsapp" data-platform="whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="share-btn copy" id="copy-link">
+                        <i class="fas fa-link"></i> <span data-en="Copy Link" data-am="አገናኝ ቅዳ">Copy Link</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="./assets/data/data.js"></script>
+    <script type="module" src="./assets/js/three-viewer.js"></script>
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
